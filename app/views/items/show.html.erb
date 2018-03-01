@@ -1,8 +1,14 @@
 <h1><%= @item.name %></h1>
-<h3>in <%= link_to @department.name, department_path(@department) %></h3>
+<h2>Rating: <%= @item.avg_rating %></h2>
+<h3>in <%= link_to @department.name, department_items_path(@department) %></h3>
 <h4>$<%= @item.price %></h4>
 <h4>Description</h4>
 <p><%= @item.desc %></p>
 <%= link_to  "EDIT", edit_department_item_path(@department, @item) %>
 <%= link_to  "DELETE", [@department, @item], method: :delete %>
 <%= link_to  "BACK", department_items_path(@department) %>
+<h2>Reviews:</h2>
+  <%= link_to 'Post a Review', new_item_review_path(@item) %>
+  <% @item.reviews.each do |review| %>
+    <%= render 'reviews/review', {review: review } %>
+  <% end %>

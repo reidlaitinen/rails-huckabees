@@ -1,2 +1,32 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<%= form_for [@item, @review] do |f| %>
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+  <br>
+  <%= f.label :rating %>
+  <%= f.radio_button :rating, 1 %>
+  <%= label_tag(:rating, "1") %>
+  <%= f.radio_button :rating, 2 %>
+  <%= label_tag(:rating, "2") %>
+  <%= f.radio_button :rating, 3 %>
+  <%= label_tag(:rating, "3") %>
+  <%= f.radio_button :rating, 4 %>
+  <%= label_tag(:rating, "4") %>
+  <%= f.radio_button :rating, 5 %>
+  <%= label_tag(:rating, "5") %>
+  <%= f.radio_button :rating, 6 %>
+  <%= label_tag(:rating, "6") %>
+  <%= f.radio_button :rating, 7 %>
+  <%= label_tag(:rating, "7") %>
+  <%= f.radio_button :rating, 8 %>
+  <%= label_tag(:rating, "8") %>
+  <%= f.radio_button :rating, 9 %>
+  <%= label_tag(:rating, "9") %>
+  <%= f.radio_button :rating, 10 %>
+  <%= label_tag(:rating, "10") %>
+  <br>
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
+  <br>
+  <%= f.submit %>
+<% end %>
+<%= link_to 'Cancel', department_item_path(@item.department_id, @item) %>

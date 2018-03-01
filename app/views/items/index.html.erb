@@ -1,9 +1,12 @@
-<h1>Items in <%= @department.name %></h1>
+<h1>All Items </h1>
+<h2>
+  in <%= link_to @department.name, department_path(@department) %>
+</h2>
 <h3><%= link_to  "Add an Item", new_department_item_path(@department) %></h3>
 <ul>
   <% @items.each do |item| %>
   <li>
-    <%= link_to  item.name, department_item_path(@department, item) %>: &nbsp; ($<%= item.price %>)
+    <%= link_to  item.name, department_item_path(@department, item) %>: &nbsp; $<%= item.price %> &nbsp; Rating: <%= item.avg_rating %>
   </li>
   <% end %>
 </ul>
